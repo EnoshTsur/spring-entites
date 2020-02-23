@@ -1,0 +1,37 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/my_db
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+  profiles: test
+
+server:
+  port: 8080
+
+
+---
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/my_db
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+  profiles: production
+
+server:
+  port: 8080
+

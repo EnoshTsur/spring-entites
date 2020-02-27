@@ -3,8 +3,13 @@ package entities.demo.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "COURSE")
-public class Course {
+@Table(name = "Book")
+//@NamedQuery(name = "find_all", query = "select c from Book c")
+@NamedQueries({
+        @NamedQuery(name = "find_all", query = "select b from Book b"),
+        @NamedQuery(name = "find_harry", query = "select b from Book b where b.name = 'harry potter'")
+})
+public class Book {
 
     @Id
     @Column(name = "ID")
@@ -14,13 +19,13 @@ public class Course {
     @Column(name = "NAME")
     private String name;
 
-    public Course() {}
+    public Book() {}
 
-    public Course(String name) {
+    public Book(String name) {
         this.name = name;
     }
 
-    public Course(Long id, String name) {
+    public Book(Long id, String name) {
         this.name = name;
         this.id = id;
     }
@@ -43,7 +48,7 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course{" +
+        return "Book{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

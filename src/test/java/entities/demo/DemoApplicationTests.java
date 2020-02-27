@@ -1,62 +1,87 @@
 package entities.demo;
 
-import entities.demo.model.Course;
-import entities.demo.repository.CourseRepo;
-import jdk.nashorn.internal.ir.annotations.Ignore;
+import entities.demo.repository.BookRepo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Commit;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
-@ActiveProfiles(profiles = "test")
+@ActiveProfiles(profiles = "dev")
 class DemoApplicationTests {
 
     @Autowired
-    private CourseRepo repo;
+    private BookRepo repo;
 
     @Test
     void contextLoads() {
     }
 
 
-//    @Test
-//    @DirtiesContext
-//    @Ignore
-//    void create() {
-//        Course course = new Course("python");
-//        repo.save(course);
-//    }
+    @Test
+    void create() {
+//        Book book = new Book("harry potter");
+//        Book book2 = new Book("lord of the rings");
+//        repo.save(book);
+//        repo.save(book2);
+    }
 
     @Test
     void update(){
-        Course course = new Course(1L, "java3");
-        repo.save(course);
+//        Book book = new Book(2L, "Easy Java");
+//        repo.save(book);
     }
 
 
-//    @Ignore
-//    @Test
-//    void delete() {
-//        Course course = repo.deletById(6L);
+    @Test
+    void delete() {
+//        Book course = repo.deletById(4L);
 //        System.out.println(course);
-//    }
+    }
 
     @Test
     void all() {
-//        System.out.println(repo.findAll());
+        System.out.println(repo.findAll());
+    }
+
+    @Test
+    void allNamed(){
+        System.out.println(repo.findAllNamed());
     }
 
     @Test
     void byNameJPQL(){
-//        System.out.println(repo.findByName("sql"));
+        System.out.println(repo.findByName("Easy Java"));
     }
 
     @Test
     void byNameNative(){
-        System.out.println(repo.findByNameNative("sql"));
+        System.out.println(repo.findByNameNative("Easy Java"));
+    }
+
+    @Test
+    void byHarryNamed(){
+        System.out.println(repo.findHarry());
+    }
+
+    @Test
+    void createUpdate(){
+//        repo.createAndUpdate("Doesnt matter");
+    }
+
+    @Test
+    void createDetach(){
+//        repo.createDetach();
+    }
+
+    @Test
+    void createClear(){
+//        repo.createClear();
+    }
+
+    @Test
+    void createRefresh(){
+//        repo.createRefresh();
     }
 
 
